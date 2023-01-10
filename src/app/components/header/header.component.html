@@ -1,1 +1,38 @@
-<p>header works!</p>
+<div class="row bg-light text-primary m-auto">
+    <div class="col-md-4 ms-4">
+        <a href="" class="navbar-brand py-2"><h6 id="rainbow" >MedWay</h6></a>
+    </div>
+    <div class="col-md-6 text-end">
+      <a  class="navbar-brand me-4 py-2" *ngIf="isloggeduserin">Cart <i class="bi bi-cart2"></i><span class="cartCount">2</span></a>
+        <a  class="navbar-brand" data-bs-toggle="modal" data-bs-target="#loginModal" *ngIf="!isloggeduserin">Login</a>
+        <a  class="navbar-brand" data-bs-toggle="modal" data-bs-target="#loginModal" *ngIf="isloggeduserin">{{loggedinuserdetails.username}}</a>
+        <a  class="navbar-brand ms-4">About us</a>
+    </div>
+
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">{{actionname | titlecase &nbsp;}} here</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #closebtn></button>
+        </div>
+        <div class="modal-body">
+        <app-signup *ngIf="actionname=='signup'"></app-signup>
+      <app-login *ngIf="actionname=='signin'" (loginsuccess)="handleloginsuccess($event)"></app-login>
+
+        </div>
+        <div class="d-grid ms-5 me-5">
+         
+          <button type="button" class="btn btn-success ms-5 me-5 m-3" (click)="changeaction()" *ngIf="issignin" >Create New Account</button>
+          <button type="button" class="btn btn-primary ms-5 me-5 m-3" (click)="gotologin()" *ngIf="issignup" >SignIn</button>
+        </div>
+       
+      </div>
+    </div>
+  </div>
