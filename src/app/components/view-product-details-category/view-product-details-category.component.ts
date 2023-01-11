@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from 'src/app/cart/cart.service';
 import { HttpService } from 'src/app/http.service';
+
 
 @Component({
   selector: 'app-view-product-details-category',
@@ -7,9 +9,9 @@ import { HttpService } from 'src/app/http.service';
   styleUrls: ['./view-product-details-category.component.scss']
 })
 export class ViewProductDetailsCategoryComponent implements OnInit {
-
+  
   topDealsByCategory:any;
-  constructor(private http:HttpService) { }
+  constructor(private http:HttpService ,private cart:CartService) { }
 
   ngOnInit(): void {
     this.getTopDealsByCategory()
@@ -22,5 +24,9 @@ export class ViewProductDetailsCategoryComponent implements OnInit {
       }
      })
   }
-
+ 
+  addtocart(product:any){
+    this.cart.addselecteditemtocart(product)
+    
+     }
 }

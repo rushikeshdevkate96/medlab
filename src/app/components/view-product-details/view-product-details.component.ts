@@ -2,6 +2,7 @@ import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpService } from 'src/app/http.service';
+import { SharedService } from 'src/app/shared/shared.service';
 
 @Component({
   selector: 'app-view-product-details',
@@ -12,7 +13,7 @@ export class ViewProductDetailsComponent implements OnInit {
 
 
   productDetails:any;
-  constructor(private route:ActivatedRoute,private http:HttpService) {
+  constructor(private route:ActivatedRoute,private http:HttpService,private prodservice:SharedService) {
     console.log('Hi')
    }
 
@@ -32,8 +33,13 @@ export class ViewProductDetailsComponent implements OnInit {
       if(response && response.length > 0){
         this.productDetails = response[0]
       }
-    })                          
+    }
+    )  
+     
+                          
     
 
     } 
+
+
 }

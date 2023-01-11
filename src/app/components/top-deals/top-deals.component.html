@@ -9,8 +9,8 @@
 
                 <ng-template carouselSlide [id]="deal.id">
                     <div class="card card-block" style="width: 250px; height: 450px;"
-                        [routerLink]="['/view-product-details',deal.drugCode]">
-                        <img [src]="deal.productImageSlug[0]" class="card-img-top m-2 p-4" alt="..." height="220px">
+                       >
+                        <img [src]="deal.productImageSlug[0]" class="card-img-top m-2 p-4" alt="..." height="220px"  [routerLink]="['/view-product-details',deal.drugCode]">
                         <div class="card-body">
                             <h5 class="card-title card-description" [title]="deal.description">{{deal.description}}</h5>
                             <p class="card-text text-muted">{{deal.type}}</p>
@@ -18,7 +18,7 @@
                             <p style="font-size: 20px;">₹ <span class="ms-0">{{deal.discountPrice}}</span> &nbsp;
                                  <span
                                     style="margin-left: 90px;" class="border border-primary rounded"><a
-                                        class="text-decoration-none px-3 fs-6" (click)="addtocart()">ADD</a>
+                                        class="text-decoration-none px-3 fs-6" (click)="addtocart(deal)">ADD</a>
                                 </span>
                             </p>
                         </div>

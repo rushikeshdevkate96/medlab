@@ -1,5 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Observable } from 'rxjs';
 import { AuthenticationService } from 'src/app/core/authentication.service';
+import { SharedService } from 'src/app/shared/shared.service';
 
 @Component({
   selector: 'app-header',
@@ -16,8 +18,8 @@ loggedinuserdetails:any
 isloggeduserin:boolean=false
 
 @ViewChild( 'closebtn',{read:ElementRef}) closebtn!:ElementRef
-
-  constructor(private authservice:AuthenticationService) { }
+  cartcount!:Observable<number>
+  constructor(private authservice:AuthenticationService,private shared :SharedService) { }
 
   ngOnInit(): void {
     this.loggedinuserdetails=this.authservice.getuser();
@@ -25,6 +27,10 @@ isloggeduserin:boolean=false
       this.isloggeduserin=true
     }
    //this is responsible for displaying y=username directly without asking to log in
+  
+   this.cartcount=this.shared.cartobs
+   //we are using async pipe for subscribing this observable
+
   }
  changeaction(){
 this.issignin=false
