@@ -21,6 +21,8 @@ import { ViewProductDetailsCategoryComponent } from './components/view-product-d
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +34,8 @@ import { ViewProductDetailsCategoryComponent } from './components/view-product-d
     TopDealsComponent,
     MedicineComponent,
     ViewProductDetailsCategoryComponent
+   
+ 
     
   
   ],

@@ -11,7 +11,7 @@
 
     <input type="number" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon2"
       formControlName="mobile number">
-    <span class="input-group-text" id="basic-addon2"><a class="p-1 nodecoration" (click)="getotp()" *ngIf="!ismobileverified">Get OTP </a>
+    <span class="input-group-text" id="basic-addon2"><a class="p-1 nodecoration" (click)="getotp()" *ngIf="!ismobileverified && !isgetotp" >Get OTP </a>
       <span class="text-success" *ngIf="ismobileverified"> Verified <i class="bi bi-check2-square"></i></span></span>
 
   </div>

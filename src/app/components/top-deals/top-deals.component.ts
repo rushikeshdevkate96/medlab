@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpService } from 'src/app/http.service';
+import { HttpService } from 'src/app/core/http/http.service';
 import { OwlOptions } from 'ngx-owl-carousel-o'
 import { CartService } from 'src/app/cart/cart.service';
 

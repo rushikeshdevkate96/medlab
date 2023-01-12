@@ -1,7 +1,7 @@
 import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpService } from 'src/app/http.service';
+import { HttpService } from 'src/app/core/http/http.service';
 import { SharedService } from 'src/app/shared/shared.service';
 
 @Component({

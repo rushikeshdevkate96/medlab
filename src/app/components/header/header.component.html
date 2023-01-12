@@ -5,9 +5,9 @@
     </a>
   </div>
   <div class="col-md-6 text-end">
-    <a class="navbar-brand me-4 py-2" *ngIf="isloggeduserin">Cart <i class="bi bi-cart2"></i><span
+    <a class="navbar-brand me-4 py-2" (click)="redirecttocart()" >Cart <i class="bi bi-cart2"></i><span
         class="cartCount">{{cartcount | async }}</span></a>
-    <a class="navbar-brand" data-bs-toggle="modal" data-bs-target="#loginModal" *ngIf="!isloggeduserin">Login</a>
+    <a class="navbar-brand" data-bs-toggle="modal" data-bs-target="#loginModal" *ngIf="!isloggeduserin" #loginbtn>Login</a>
     <a class="navbar-brand" data-bs-toggle="modal" data-bs-target="#loginModal"
       *ngIf="isloggeduserin">{{loggedinuserdetails.username}}</a>
     <a class="navbar-brand ms-4">About us</a>
@@ -28,7 +28,7 @@
       </div>
       <div class="modal-body">
         <app-signup *ngIf="actionname=='signup'"></app-signup>
-        <app-login *ngIf="actionname=='signin'" (loginsuccess)="handleloginsuccess($event)"></app-login>
+        <app-login *ngIf="actionname=='signin'" (loginsuccess)="handleloginsuccess($event)" ></app-login>
 
       </div>
       <div class="d-grid ms-5 me-5">
