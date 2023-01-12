@@ -1,5 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { AuthenticationService } from 'src/app/core/authentication.service';
+import { SharedService } from 'src/app/shared/shared.service';
 
 @Component({
   selector: 'app-header',
@@ -16,8 +19,10 @@ loggedinuserdetails:any
 isloggeduserin:boolean=false
 
 @ViewChild( 'closebtn',{read:ElementRef}) closebtn!:ElementRef
+@ViewChild( 'loginbtn',{read:ElementRef}) loginbtn!:ElementRef
 
-  constructor(private authservice:AuthenticationService) { }
+  cartcount!:Observable<number>
+  constructor(private authservice:AuthenticationService,private shared :SharedService,private router:Router) { }
 
   ngOnInit(): void {
     this.loggedinuserdetails=this.authservice.getuser();
@@ -25,6 +30,10 @@ isloggeduserin:boolean=false
       this.isloggeduserin=true
     }
    //this is responsible for displaying y=username directly without asking to log in
+  
+   this.cartcount=this.shared.cartobs
+   //we are using async pipe for subscribing this observable
+
   }
  changeaction(){
 this.issignin=false
@@ -39,7 +48,17 @@ this.actionname='signup'
 
  handleloginsuccess(flag:boolean){
   this.isloggeduserin=true
+  this.loggedinuserdetails=this.authservice.getuser();
   this.closebtn.nativeElement.click();
  
+ }
+
+ redirecttocart(){
+  if(this.isloggeduserin){
+    this.router.navigate(['/cart'])
+  }
+  else{
+  this.loginbtn.nativeElement.click();
+  }
  }
 }

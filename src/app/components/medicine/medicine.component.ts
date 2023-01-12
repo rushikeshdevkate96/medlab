@@ -1,6 +1,6 @@
 import { HttpParams } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { HttpService } from 'src/app/http.service';
+import { HttpService } from 'src/app/core/http/http.service';
 
 @Component({
   selector: 'app-medicine',

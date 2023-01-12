@@ -1,7 +1,7 @@
 import { HttpParams } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpService } from '../http.service';
+import { HttpService } from '../core/http/http.service';
 
 @Component({
   selector: 'app-login',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { interval, Subscription } from 'rxjs';
-import { HttpService } from 'src/app/http.service';
+import { HttpService } from 'src/app/core/http/http.service';
 
 @Component({
   selector: 'app-signup',
@@ -66,7 +66,7 @@ export class SignupComponent implements OnInit {
   }
 
   signup() {
-      this.http.postdetailstoserver('users', this.signupform.value).subscribe((data: any) => {
+      this.http.postDetailsToServer('users', this.signupform.value).subscribe((data: any) => {
       console.log(data)
     })
     this.issignupsuccess=true
